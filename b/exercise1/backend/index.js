@@ -2,9 +2,12 @@ const express = require('express')
 const morgan = require('morgan')
 const app = express()
 const cors = require('cors')
+const { response } = require('express')
 
 app.use(express.json())
+app.use(express.static('build'))
 app.use(cors())
+
 
 app.use(morgan(function (tokens, req, res) {
   return [
@@ -37,7 +40,10 @@ let notes = [
         important: true
       }
 ]
-
+app.get('/', (request,response) => {
+  response.send(
+    "<div><h1>Hello World</h1><p>go to /api/notes for notes</p></div>")
+})
 
 app.get('/api/notes', (request, response) => {
   response.json(notes)
@@ -81,7 +87,7 @@ const unknownEndpoint = (request, response) => {
 
 app.use(unknownEndpoint)
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)
 })
