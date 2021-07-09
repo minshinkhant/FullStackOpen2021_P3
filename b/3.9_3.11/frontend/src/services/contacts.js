@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = 'http://localhost:3001/api/persons';
+const baseUrl = 'https://fso2021-3-9-3-11.herokuapp.com/api/persons';
 
 const getAll = () => {
     const request = axios.get(baseUrl);
@@ -20,8 +20,9 @@ const update = (id, newObject) => {
 const deleteContact = (id, name) => () => {
     if (window.confirm(`Do you want to delete ${name}`)) {
         const request = axios.delete(`${baseUrl}/${id}`);
+        const newContacts = request.then(response => response.data);
         window.location.reload();
-        return request.then(response => response.data);
+        return newContacts;
     }
     return false;
 

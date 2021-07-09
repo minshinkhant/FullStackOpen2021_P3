@@ -9,7 +9,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors())
-
+app.use(express.static('build'))
 app.use(morgan(function (tokens, req, res) {
     return [
       tokens.method(req, res),
@@ -70,7 +70,7 @@ app.get('/api/persons/:id', (request, response) => {
 app.delete('/api/persons/:id', (request, response) => {
     const id = Number(request.params.id)
     contacts = contacts.filter(contact => contact.id !== id)
-    response.status(204).end()
+    response.json(contacts)
 })
 
 //post new contact
@@ -81,22 +81,16 @@ app.post('/api/persons', (request, response) => {
             error: 'content missing'
         })
     }
-    else if (contacts.find(contact => contact.name.toLowerCase() === body.name.toLowerCase())){
-        return response.status(204).json({
-            error: 'name must be unique'
-        })
-    }
-
     const contact = {
-        id: Math.floor(Math.random()*(100 - contacts.length)+contacts.length),
+        id: body.id,
         name: body.name,
         number: body.number
     }
-    contacts = contacts.concat(contact)
-    response.json(contact)
+    contacts = contacts.concat(contact);
+    response.json(contacts)
 })
 
-const PORT = 3001
+const PORT = process.env.PORT || 3001
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)

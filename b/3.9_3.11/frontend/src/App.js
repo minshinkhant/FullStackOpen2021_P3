@@ -83,11 +83,11 @@ const App = () => {
       //create new contact with contactService
       contactService.create(personsObject)
         .then(returnedContact => {
-          setPersons(persons.concat(returnedContact));
+          setPersons(returnedContact);
           setNewName("");
           setNewNumber("");
           setNewMessage(
-            `Added ${returnedContact.name}`
+            `Added ${personsObject.name}`
           )
           setTimeout(() => {
             setNewMessage(null);
