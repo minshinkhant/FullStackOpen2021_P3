@@ -18,26 +18,26 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model("Contact", contactSchema)
 
-const contact = new Contact({
-    name: process.argv[3],
-    number: process.argv[4]
-})
 
 if (process.argv[3]) {
+    const contact = new Contact({
+        name: process.argv[3],
+        number: process.argv[4]
+    })
     contact.save().then(result => {
         console.log(`Added ${result.name} number ${result.number} to phonebook`)
         mongoose.connection.close()
+
     })
 }
 
 else{
-        console.log("min")
         Contact.find({}).then(result => {
-            //console.log(result)
+            console.log("phonebook:")
             result.forEach(contact => {
-                console.log(contact)
-                //console.log(`${contact.name} ${contact.number}`)
+                console.log(`${contact.name} ${contact.number}`)
+            mongoose.connection.close()
+
             })
         })
-        mongoose.connection.close()
     }
