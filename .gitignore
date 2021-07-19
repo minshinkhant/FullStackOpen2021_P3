@@ -15,4 +15,8 @@
 /c/exercise2/backend/.env
 /c/3.13_3.14/frontend/node_modules
 /c/3.13_3.14/backend/node_modules
-/c/3.13_3.14/backend/.env 
+/c/3.13_3.14/backend/.env
+/c/exercise3/frontend/node_modules
+/c/exercise3/backend/node_modules
+/c/exercise3/backend/.env
+
