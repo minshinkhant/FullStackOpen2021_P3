@@ -25,8 +25,7 @@ const App = () => {
 
     noteServiceAll.update(id, changedNote)
       .then(returnedNote => {
-        console.log(returnedNote)
-        setNotes(returnedNote)
+        setNotes(notes.map(note => note.id===returnedNote.id?returnedNote:note))
       }).catch(error => {
         setErrorMessage(
           `Note "${note.content}" was already removed from server`
@@ -59,7 +58,7 @@ const App = () => {
     noteServiceAll
       .create(noteObject)
       .then(returnedNote => {
-        setNotes(returnedNote)
+        setNotes(notes.concat(returnedNote))
         setNewNote('')
       })
   }

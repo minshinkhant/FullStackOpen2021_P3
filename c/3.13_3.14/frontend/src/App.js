@@ -83,7 +83,7 @@ const App = () => {
       //create new contact with contactService
       contactService.create(personsObject)
         .then(returnedContact => {
-          console.log(returnedContact)
+          //console.log(returnedContact)
           setPersons(persons);
           setNewName("");
           setNewNumber("");
