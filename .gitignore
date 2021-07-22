@@ -22,3 +22,33 @@
 /c/3.15_3.18/frontend/node_modules
 /c/3.15_3.18/backend/node_modules
 /c/3.15_3.18/backend/.env
+/d/exercise1/frontend/node_modules
+/d/exercise1/backend/node_modules
+/d/exercise1/backend/.env
+
+
+
+
+
+
+
+# /c/3.13_3.14/frontend/.DS_Store
+# /c/3.15_3.18/frontend/.DS_Store
+# /c/exercise1/frontend/.DS_Store
+# /c/exercise2/frontend/.DS_Store
+# /c/exercise3/frontend/.DS_Store
+.DS_Store
+# /a/.DS_Store
+# /b/.DS_Store
+# /b/3.9_3.11/.DS_Store
+# /b/3.9_3.11/backend/.DS_Store
+# /b/exercise1/.DS_Store
+# /b/exercise1/backend/.DS_Store
+# /b/exercise1/frontend/.DS_Store
+# /c/.DS_Store
+# /c/3.12/.DS_Store
+# /c/3.13_3.14/.DS_Store
+# /c/3.15_3.18/.DS_Store
+# /c/exercise1/.DS_Store
+# /c/exercise2/.DS_Store
+# /c/exercise3/.DS_Store
