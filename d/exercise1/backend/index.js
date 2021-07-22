@@ -71,11 +71,9 @@ app.post('/api/notes', (request, response, next) => {
   })
 
   note.save().then(savedNote => {
-    console.log(savedNote.toJSON())
     return (savedNote.toJSON())
   })
   .then(savedAndFormattedNote => {
-    console.log(savedAndFormattedNote)
     response.json(savedAndFormattedNote)
   })
   .catch(error => next(error))
